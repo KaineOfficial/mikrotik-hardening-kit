@@ -12,9 +12,14 @@
 
 ### Pourquoi ce kit
 
-Le 16 avril 2026, un MikroTik de production a été exploité comme **open resolver DNS pendant 19 heures** à cause d'une règle firewall qui ciblait une interface spécifique au lieu d'une interface-list. Résultat : **1,78 million de requêtes amplifiées, 5,3 GB de trafic sortant vers des IPs spoofées**. [Post-mortem complet](docs/incident-postmortem.md).
+Le 16 avril 2026, un MikroTik de production a été **exploité comme open resolver DNS pendant 19 heures** à cause d'une règle firewall qui ciblait une interface spécifique au lieu d'une interface-list. Volume modeste (~5 GB sortants, 1,78M requêtes sur 19h — ~77 kB/s moyenne), mais deux problèmes réels :
 
-Ce kit existe pour que **la même erreur ne puisse pas se reproduire** — ni sur mon infra, ni sur la tienne. Chaque script ici pointe vers une leçon concrète apprise ce jour-là.
+1. **Le routeur a participé à une attaque contre des tiers** — responsabilité engagée, risque de signalement par le FAI upstream.
+2. **La cause est un angle mort firewall trivial** qui a tourné 19h sans aucune alerte. Le même genre d'angle mort peut exister sur n'importe quelle infra.
+
+[Post-mortem complet](docs/incident-postmortem.md).
+
+Ce kit existe pour que **cette erreur-là ne puisse pas se reproduire** — ni sur mon infra, ni sur la tienne. Chaque script ici pointe vers une leçon concrète apprise ce jour-là.
 
 ### Ce que contient le kit
 
@@ -97,9 +102,14 @@ Issues et MR bienvenues, surtout si :
 
 ### Why this kit
 
-On April 16, 2026, a production MikroTik was abused as a **DNS open resolver for 19 hours** because of a firewall rule targeting a specific interface instead of an interface-list. Result: **1.78M amplified queries, 5.3 GB of outbound traffic to spoofed IPs**. [Full post-mortem](docs/incident-postmortem.md).
+On April 16, 2026, a production MikroTik was **abused as a DNS open resolver for 19 hours** because of a firewall rule targeting a specific interface instead of an interface-list. Modest volume (~5 GB outbound, 1.78M queries over 19h — ~77 kB/s average), but two real issues:
 
-This kit exists so **the same mistake can't happen again** — not on my infra, not on yours. Every script here points to a concrete lesson learned that day.
+1. **The router took part in an attack against third parties** — legal exposure, risk of upstream ISP takedown notice.
+2. **The root cause is a trivial firewall blind spot** that ran 19 hours with zero alerting. The same kind of blind spot can exist on any infra.
+
+[Full post-mortem](docs/incident-postmortem.md).
+
+This kit exists so **that specific mistake can't happen again** — not on my infra, not on yours. Every script here points to a concrete lesson learned that day.
 
 ### What's inside
 

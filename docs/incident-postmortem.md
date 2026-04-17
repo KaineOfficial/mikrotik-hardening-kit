@@ -9,7 +9,13 @@
 
 ### Résumé
 
-Le 2026-04-16, un routeur MikroTik de production a été exploité comme **open resolver DNS** pendant **19 heures** via une interface tunnel L2TP (`NOBGP_L2TP`). Résultat : **1,78 million de requêtes `ANY`** réfléchies vers **9 021 IPs spoofées** (cible principale : un bloc `/29` en Israël). Volume estimé : **~5,3 GB sortants**.
+Le 2026-04-16, un routeur MikroTik de production a été exploité comme **open resolver DNS** pendant **19 heures** via une interface tunnel L2TP (`NOBGP_L2TP`). Volume : **1,78M requêtes `ANY`** réfléchies vers **9 021 IPs spoofées** (cible principale : un bloc `/29` en Israël), **~5,3 GB sortants sur 19h** (~77 kB/s moyenne).
+
+**Le volume en lui-même est modeste** (un vrai DDoS se mesure en centaines de Gbps). Ce qui rend l'incident grave :
+
+- Le routeur a **participé à une attaque contre des tiers** : responsabilité engagée, risque de notice d'abuse du FAI upstream.
+- L'attaque a tourné **19h sans alerte** : l'attaquant pouvait intensifier ou passer le routeur à un botnet pour cibles plus grosses à tout moment.
+- La cause racine (angle mort firewall) est **trivialement reproductible** sur n'importe quelle infra qui ajoute un tunnel après coup.
 
 ### Cause racine
 
@@ -49,7 +55,13 @@ La règle firewall « Block DNS from WAN » ciblait l'interface principale via `
 
 ### Summary
 
-On 2026-04-16, a production MikroTik router was abused as a **DNS open resolver** for **19 hours** via an L2TP tunnel interface (`NOBGP_L2TP`). Result: **1.78 million `ANY` queries** reflected to **9,021 spoofed IPs** (main target: a `/29` block in Israel). Estimated volume: **~5.3 GB outbound**.
+On 2026-04-16, a production MikroTik router was abused as a **DNS open resolver** for **19 hours** via an L2TP tunnel interface (`NOBGP_L2TP`). Volume: **1.78M `ANY` queries** reflected to **9,021 spoofed IPs** (main target: a `/29` block in Israel), **~5.3 GB outbound over 19h** (~77 kB/s average).
+
+**The raw volume is modest** (a real DDoS is measured in hundreds of Gbps). What makes the incident serious:
+
+- The router **took part in an attack against third parties**: legal exposure, risk of upstream ISP abuse notice.
+- The attack ran **19 hours with no alert**: the attacker could have scaled up, or handed the router to a botnet for bigger targets, at any time.
+- The root cause (firewall blind spot) is **trivially reproducible** on any infra that adds a tunnel later.
 
 ### Root cause
 
