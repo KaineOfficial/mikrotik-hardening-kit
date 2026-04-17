@@ -1,5 +1,5 @@
 # -----------------------------------------------------------------------------
-# routeros-self-audit.rsc
+# routeros-self-audit.rsc                                   [incident + generique]
 #
 # A executer DIRECTEMENT sur le routeur MikroTik (terminal Winbox ou SSH).
 # Verifie les points les plus couramment oublies apres un deploiement

@@ -1,7 +1,8 @@
 # -----------------------------------------------------------------------------
-# 03-firewall-forward-baseline.rsc
+# 03-firewall-forward-baseline.rsc                          [generique]
 #
 # Regles firewall chain=forward : trafic qui transite A TRAVERS le routeur
+# Bonne pratique generique, pas specifique a l'incident du 2026-04-16.
 # (LAN <-> Internet principalement). Baseline stricte.
 #
 # Prerequis :

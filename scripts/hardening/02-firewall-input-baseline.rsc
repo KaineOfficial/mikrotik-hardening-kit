@@ -1,7 +1,8 @@
 # -----------------------------------------------------------------------------
-# 02-firewall-input-baseline.rsc
+# 02-firewall-input-baseline.rsc                            [generique]
 #
 # Regles firewall chain=input de base pour proteger le routeur lui-meme.
+# Bonne pratique generique, pas specifique a l'incident du 2026-04-16.
 # Ordre : accept established/related > LAN > services autorises > DROP all.
 #
 # ATTENTION : si tu appliques ces regles a distance SANS avoir deja

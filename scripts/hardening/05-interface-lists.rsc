@@ -1,5 +1,5 @@
 # -----------------------------------------------------------------------------
-# 05-interface-lists.rsc
+# 05-interface-lists.rsc                                    [incident]
 #
 # Cree les interface-lists "WAN", "LAN" et "bogons" (address-list).
 # Indispensable : les autres scripts referencent ces listes au lieu de

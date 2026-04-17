@@ -1,7 +1,8 @@
 # -----------------------------------------------------------------------------
-# 04-disable-services.rsc
+# 04-disable-services.rsc                                   [generique]
 #
 # Desactive les services admin en clair et ceux qu'on n'utilise pas.
+# Bonne pratique generique, pas specifique a l'incident du 2026-04-16.
 # Restreint les services gardes a des IPs source specifiques.
 #
 # Services MikroTik par defaut :

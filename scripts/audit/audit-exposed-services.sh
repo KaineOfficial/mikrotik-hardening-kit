@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # -----------------------------------------------------------------------------
-# audit-exposed-services.sh
+# audit-exposed-services.sh                                 [generique]
 #
 # Scan un MikroTik depuis l'exterieur pour detecter les services
 # administratifs exposes publiquement (Winbox 8291, API 8728/8729,

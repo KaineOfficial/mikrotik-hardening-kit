@@ -19,7 +19,29 @@ Le 16 avril 2026, un MikroTik de production a été **exploité comme open resol
 
 [Post-mortem complet](docs/incident-postmortem.md).
 
-Ce kit existe pour que **cette erreur-là ne puisse pas se reproduire** — ni sur mon infra, ni sur la tienne. Chaque script ici pointe vers une leçon concrète apprise ce jour-là.
+### Scope du kit
+
+L'incident a été le déclencheur, mais le kit va au-delà. Pour être honnête :
+
+- **Le bug exact se corrige en 3 lignes** (`allow-remote-requests=no`, une règle firewall input sur `interface-list=WAN`, ajouter les tunnels à la WAN list).
+- **Le reste du kit = hardening générique MikroTik** qu'on aurait dû faire avant l'incident. L'incident a révélé qu'aucune revue systématique n'avait été faite.
+
+Chaque script est étiqueté :
+- `[incident]` = issu directement de l'incident du 16/04
+- `[générique]` = bonne pratique MikroTik générique, pas spécifique à cet incident
+
+| Fichier | Catégorie |
+|---|---|
+| `scripts/hardening/01-disable-dns-recursion.rsc` | `[incident]` |
+| `scripts/hardening/05-interface-lists.rsc` | `[incident]` |
+| `scripts/audit/routeros-self-audit.rsc` | `[incident]` + `[générique]` |
+| `scripts/audit/check-open-resolver.sh` | `[incident]` |
+| `scripts/hardening/02-firewall-input-baseline.rsc` | `[générique]` |
+| `scripts/hardening/03-firewall-forward-baseline.rsc` | `[générique]` |
+| `scripts/hardening/04-disable-services.rsc` | `[générique]` |
+| `scripts/audit/audit-exposed-services.sh` | `[générique]` |
+
+Si tu veux uniquement traiter l'incident : applique les 4 scripts `[incident]`. Si tu veux faire un hardening complet, applique tout.
 
 ### Ce que contient le kit
 
@@ -109,7 +131,29 @@ On April 16, 2026, a production MikroTik was **abused as a DNS open resolver for
 
 [Full post-mortem](docs/incident-postmortem.md).
 
-This kit exists so **that specific mistake can't happen again** — not on my infra, not on yours. Every script here points to a concrete lesson learned that day.
+### Kit scope
+
+The incident was the trigger, but the kit goes further. To be honest:
+
+- **The exact bug is a 3-line fix** (`allow-remote-requests=no`, one input firewall rule on `interface-list=WAN`, add tunnels to the WAN list).
+- **The rest of the kit = generic MikroTik hardening** that should have been done before the incident. The incident revealed that no systematic review had ever been done.
+
+Each script is tagged:
+- `[incident]` = directly from the 04-16 incident
+- `[generic]` = generic MikroTik best practice, not specific to this incident
+
+| File | Category |
+|---|---|
+| `scripts/hardening/01-disable-dns-recursion.rsc` | `[incident]` |
+| `scripts/hardening/05-interface-lists.rsc` | `[incident]` |
+| `scripts/audit/routeros-self-audit.rsc` | `[incident]` + `[generic]` |
+| `scripts/audit/check-open-resolver.sh` | `[incident]` |
+| `scripts/hardening/02-firewall-input-baseline.rsc` | `[generic]` |
+| `scripts/hardening/03-firewall-forward-baseline.rsc` | `[generic]` |
+| `scripts/hardening/04-disable-services.rsc` | `[generic]` |
+| `scripts/audit/audit-exposed-services.sh` | `[generic]` |
+
+If you only want to address the incident: apply the 4 `[incident]` scripts. If you want full hardening, apply everything.
 
 ### What's inside
 

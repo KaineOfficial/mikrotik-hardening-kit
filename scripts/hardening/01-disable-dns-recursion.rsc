@@ -1,5 +1,5 @@
 # -----------------------------------------------------------------------------
-# 01-disable-dns-recursion.rsc
+# 01-disable-dns-recursion.rsc                              [incident]
 #
 # Desactive la resolution DNS recursive depuis l'exterieur.
 # C'est LA regle #1 contre les attaques DNS amplification.

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # -----------------------------------------------------------------------------
-# check-open-resolver.sh
+# check-open-resolver.sh                                    [incident]
 #
 # Teste depuis Internet si une IP publique repond aux requetes DNS recursives.
 # Un routeur MikroTik qui repond = open resolver = risque d'attaque
