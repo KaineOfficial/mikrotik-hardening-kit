@@ -1,0 +1,26 @@
+# Local / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# RouterOS backups / configs with secrets
+*.backup
+*.rsc.local
+config-*.rsc
+backup-*.rsc
+
+# Logs / forensic dumps
+*.log
+forensic-*/
+
+# Secrets
+.env
+*.pem
+*.key
+!scripts/**/*.rsc
+
+# Node / misc
+node_modules/
